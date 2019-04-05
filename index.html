@@ -11,12 +11,12 @@
 </head>
 <body>
 
-  <h1 class="heading jumbotron container text-center display-4 justify-content-around m">Bollywood Trivia</h1>
+  <h1 class="heading jumbotron container text-center display-4 justify-content-around m">Basketball Trivia</h1>
 
   <section class="container">
 
     <div class="question text-center border p-3">
-      <h3 id="q">Which actor has had the most roles in BollyWood movies?</h3>
+      <h3 id="q">Click on the new game to get started</h3>
     </div>
 
     <div class="row container">
@@ -26,22 +26,22 @@
             <!-- <h5 class="card-title">Card title</h5> -->
           </div>
           <ul class="list-group list-group-flush">
-            <li class="list-group-item">Time Remaining: <span class="time"></span></li>
+            <li class="list-group-item time-remaining">Time Remaining: <span class="time"></span></li>
             <li class="list-group-item">Correct Answers: <span class="corrects"></span></li>
             <li class="list-group-item">Wrong Answers: <span class="wrongs"></span></li>
           </ul>
           <div class="card-body">
-            <a href="#" class="card-link">Start Over</a>
+            <a href="#" class="card-link new-game" id="new-game">New Game</a>
           </div>
         </div>
       </sec>
     
-      <div class="mt-4 btn-group-vertical p-4 justify-content-around col-8 border">
+      <div class="mt-4 btn-group-vertical p-4 justify-content-around col-8 border options">
         <h3 class="p-3">Options:</h3>
-        <button type="button" class="btn btn-secondary m-2">1. </button>
-        <button type="button" class="btn btn-secondary m-2">2. </button>
-        <button type="button" class="btn btn-secondary m-2">3. </button>
-        <button type="button" class="btn btn-secondary m-2">4. </button>
+        <button type="button" class="btn btn-secondary m-2 op op1">You have 15 seconds to answer each question </button>
+        <button type="button" class="btn btn-secondary m-2 op op2">Select your answer by clicking on them respectively</button>
+        <button type="button" class="btn btn-secondary m-2 op op3">You'll see the time remaining, correct choices and incorrect choices on the left bar</button>
+        <button type="button" class="btn btn-secondary m-2 op op4">Have fun </button>
       </div>
     </div>
   </section>
@@ -49,5 +49,6 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.slim.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/js/bootstrap.min.js"></script>
+<script src="assets/javascript/game.js"></script>
 </body>
 </html>
