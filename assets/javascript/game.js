@@ -16,42 +16,60 @@ var q3 = {
   answer: 22
 }
 
-var qBank = [q1, q2, q3];
-var timeRemaining = 15;
+var q4 = {
+  question: "Who is the tallest player inducted into the Naismith Memorial Basketball Hall of Fame?",
+  options: ["Kareem Abdul-Jabbar", "Dikembe Mutombo", "Shaqtus", "Yao"],
+  answer: "Yao"
+}
+
+var q5 = {
+  question: "Which basketball player has the most consecutive triple doubles in nba history?",
+  options: ["Micheal Jordon", "Lebron James", "Russell Westbrook", "Stephen Curry"],
+  answer: "Russell Westbrook"
+}
+
+var q6 = {
+  question: "Who is the only player in the history to the NBA to average above 50PPG (points per game) in a season?",
+  options: ["Kareem Abdul-Jabbar", "Dikembe Mutombo", "Shaqtus", "Yao"],
+  answer: "Wilt Chamberlain"
+}
+
+var qBank = [q1, q2, q3, q4, q5, q6];
+var timeRemaining = 10;
 var rights = 0;
 var wrongs = 0;
-
-// $(".new-game").on("click", newGame);
+var gameOver2 = false;
 
 function newGame() {
-  qBank = [q1, q2, q3];
-  timeRemaining = 15;
+  qBank = shuffle([q1, q2, q3, q4, q5, q6]);
+  timeRemaining = 10;
   rights = 0;
   wrongs = 0;
   $(".time").text(timeRemaining);
   $(".corrects").text(rights);
   $(".wrongs").text(wrongs);
-  setInterval(timeLeft, 1000)
+  if (!gameOver2) {
+    setInterval(timeLeft, 1000)
+  }
+  gameOver2 = false;
   nextQuestion(qBank);
 }
 
 function timeLeft() {
   timeRemaining--;
   if (timeRemaining === 0) {
-    timeRemaining = 15;
+    timeRemaining = 10;
     wrongs++;
     if (qBank.length > 0) {
       nextQuestion(qBank);
     }
   }
-  $(".time").text(timeRemaining);
-  $(".time").text(timeRemaining);
+  if (!gameOver2) {
+    $(".time").text(timeRemaining);
+  }
   $(".corrects").text(rights);
   $(".wrongs").text(wrongs);
 }
-
-
-
 
 
 function nextQuestion(array) {
@@ -71,14 +89,18 @@ function nextQuestion(array) {
 }
 
 function gameOver() {
-  if (rights > wrongs) {
-    $("#q").text("Well done, you got a good fg%")
+  if (qBank.length === 0) {
+    if (rights > wrongs) {
+      $("#q").text("Well done, you've got a good fg%")
+    }
+    if (wrongs > rights) {
+      $("#q").text("Damn son, you shot bricks.. Click on the new game to try again")
+    }
+    alert("Game Over");
+    $(".time").html("00:00");
+    gameOver2 = true;
+    // clearTimeout(timeRemaining);
   }
-  if (wrongs > rights) {
-    $("#q").text("Damn son, you shot bricks.. Click on the new game to try again")
-  }
-  alert("Game Over");
-  clearInterval(timeRemaining)
 }
 
 function shuffle(array) {
@@ -89,17 +111,65 @@ function shuffle(array) {
 
 $(".new-game").on("click", newGame);
 
+$(".op1").on("click", function () {
+  if ($(".op1").text() === ($(".op1").attr("data-answer"))) {
+    rights++;
+    nextQuestion(qBank);
+  }
+  else if ($(".op1").text() !== ($(".op1").attr("data-answer"))) {
+    wrongs++;
+    nextQuestion(qBank);
+  };
+  timeRemaining = 10;
+})
+
+$(".op2").on("click", function () {
+  if ($(".op2").text() === ($(".op2").attr("data-answer"))) {
+    rights++;
+    nextQuestion(qBank);
+  }
+  else if ($(".op2").text() !== ($(".op2").attr("data-answer"))) {
+    wrongs++;
+    nextQuestion(qBank);
+  };
+  timeRemaining = 10;
+})
+
+$(".op3").on("click", function () {
+  if ($(".op3").text() === ($(".op3").attr("data-answer"))) {
+    rights++;
+    nextQuestion(qBank);
+  }
+  else if ($(".op3").text() !== ($(".op3").attr("data-answer"))) {
+    wrongs++;
+    nextQuestion(qBank);
+  };
+  timeRemaining = 10;
+})
+
+$(".op4").on("click", function () {
+  if ($(".op4").text() === ($(".op4").attr("data-answer"))) {
+    rights++;
+    nextQuestion(qBank);
+  }
+  else if ($(".op4").text() !== ($(".op4").attr("data-answer"))) {
+    wrongs++;
+    nextQuestion(qBank);
+  };
+  timeRemaining = 10;
+})
+
 // for (var i = 1; i < 5; i++) {
 //   $(".op" + i).on("click", function () {
-//     console.log($(this));
+//     console.log(i)
 //     console.log($(".op" + i).attr("data-answer"))
 //     console.log($(".op" + i).text());
-//     if ((".op" + i).text === ($(".op" + i).attr("data-answer"))) {
+//     if ($(".op" + i).text() === ($(".op" + i).attr("data-answer"))) {
 //       rights++;
 //       nextQuestion(qBank);
 //     } 
-    
-//     if ((".op" + i).text !== ($(".op" + i).attr("data-answer"))) {
+
+//     if ($(".op" + i).text() !== ($(".op" + i).attr("data-answer"))) {
 //       wrongs++;
 //       nextQuestion(qBank);
 //     };
@@ -107,66 +177,18 @@ $(".new-game").on("click", newGame);
 //   })
 // }
 
-$(".op1").on("click", function () {
-  console.log($(this));
-  console.log($(".op1").attr("data-answer"))
-  console.log($(".op1").text());
-  if ((".op1").text === ($(".op1").attr("data-answer"))) {
-    rights++;
-    nextQuestion(qBank);
-  }
 
-  if ((".op1").text !== ($(".op1").attr("data-answer"))) {
-    wrongs++;
-    nextQuestion(qBank);
-  };
-  timeRemaining = 15;
-})
+// function answerChecker(buton) {
+//   if (buton.text() === (buton).attr("data-answer")) {
+//     rights++;
 
-$(".op2").on("click", function () {
-  console.log($(this));
-  console.log($(".op2").attr("data-answer"))
-  console.log($(".op2").text());
-  if ((".op2").text === ($(".op2").attr("data-answer"))) {
-    rights++;
-    nextQuestion(qBank);
-  }
+//   } else if (buton.text() !== (button).attr("datat-answer")) {
+//     wrongs++;
+//   }
+//   nextQuestion(qBank);
+// }
 
-  if ((".op2").text !== ($(".op2").attr("data-answer"))) {
-    wrongs++;
-    nextQuestion(qBank);
-  };
-  timeRemaining = 15;
-})
-
-$(".op3").on("click", function () {
-  console.log($(this));
-  console.log($(".op3").attr("data-answer"))
-  console.log($(".op3").text());
-  if ((".op3").text === ($(".op3").attr("data-answer"))) {
-    rights++;
-    nextQuestion(qBank);
-  }
-
-  if ((".op3").text !== ($(".op3").attr("data-answer"))) {
-    wrongs++;
-    nextQuestion(qBank);
-  };
-  timeRemaining = 15;
-})
-
-$(".op4").on("click", function () {
-  console.log($(this));
-  console.log($(".op4").attr("data-answer"))
-  console.log($(".op4").text());
-  if ((".op4").text === ($(".op4").attr("data-answer"))) {
-    rights++;
-    nextQuestion(qBank);
-  }
-
-  if ((".op4").text !== ($(".op4").attr("data-answer"))) {
-    wrongs++;
-    nextQuestion(qBank);
-  };
-  timeRemaining = 15;
-})
+// $(".op1").on("click", answerChecker($(".op1")))
+// $(".op2").on("click", answerChecker($(".op2")))
+// $(".op3").on("click", answerChecker($(".op3")))
+// $(".op4").on("click", answerChecker($(".op4")))
