@@ -30,18 +30,36 @@ var q5 = {
 
 var q6 = {
   question: "Who is the only player in the history to the NBA to average above 50PPG (points per game) in a season?",
-  options: ["Kareem Abdul-Jabbar", "Dikembe Mutombo", "Shaqtus", "Yao"],
+  options: ["Kareem Abdul-Jabbar", "Wilt Chamberlain", "Shaqtus", "Yao"],
   answer: "Wilt Chamberlain"
 }
 
-var qBank = [q1, q2, q3, q4, q5, q6];
+var q7 = {
+  question: "Which nba player played the role of 'Jesus ShuttlesWorth' alongside 'Denzel Washington' in Hollywood blockbuster 'He Got Game'?",
+  options: ["Kobe Bryant", "Lebron James", "Ray Allen", "Klay Thompson"],
+  answer: "Ray Allen"
+}
+
+var q8 = {
+  question: "Who became the first former professional athlete to be nominated and to win an Oscar in any category?",
+  options: ["Magic Johnson", "Kobe Bryant", "Charles Barkley", "Micheal Jordan"],
+  answer: "Kobe Bryant"
+}
+
+var q9 = {
+  question: "Who's the only player to score more than 100 points in a nba game?",
+  options: ["Kareem Abdul-Jabbar", "Wilt Chamberlain", "Shaqtus", "Yao"],
+  answer: "Wilt Chamberlain"
+}
+
+var qBank = [q1, q2, q3, q4, q5, q6, q7, q8, q9];
 var timeRemaining = 10;
 var rights = 0;
 var wrongs = 0;
 var gameOver2 = false;
 
 function newGame() {
-  qBank = shuffle([q1, q2, q3, q4, q5, q6]);
+  qBank = shuffle([q1, q2, q3, q4, q5, q6, q7, q8, q9]);
   timeRemaining = 10;
   rights = 0;
   wrongs = 0;
@@ -49,8 +67,10 @@ function newGame() {
   $(".corrects").text(rights);
   $(".wrongs").text(wrongs);
   if (!gameOver2) {
-    setInterval(timeLeft, 1000)
+    setInterval(timeLeft, 1000);
+    clearInterval(timeRemaining);
   }
+  $(".new-game").hide();
   gameOver2 = false;
   nextQuestion(qBank);
 }
@@ -96,9 +116,10 @@ function gameOver() {
     if (wrongs > rights) {
       $("#q").text("Damn son, you shot bricks.. Click on the new game to try again")
     }
-    alert("Game Over");
+    alert("---Game Over--- Fg%: " + ((rights/9)*100));
     $(".time").html("00:00");
     gameOver2 = true;
+    $(".new-game").show();
     // clearTimeout(timeRemaining);
   }
 }
@@ -111,53 +132,52 @@ function shuffle(array) {
 
 $(".new-game").on("click", newGame);
 
-$(".op1").on("click", function () {
-  if ($(".op1").text() === ($(".op1").attr("data-answer"))) {
-    rights++;
-    nextQuestion(qBank);
-  }
-  else if ($(".op1").text() !== ($(".op1").attr("data-answer"))) {
-    wrongs++;
-    nextQuestion(qBank);
-  };
-  timeRemaining = 10;
-})
+if (!gameOver2) {
+  $(".op1").on("click", function () {
+    if ($(".op1").text() === ($(".op1").attr("data-answer"))) {
+      rights++;
+      nextQuestion(qBank);
+    } else if ($(".op1").text() !== ($(".op1").attr("data-answer"))) {
+      wrongs++;
+      nextQuestion(qBank);
+    };
+    timeRemaining = 10;
+  })
 
-$(".op2").on("click", function () {
-  if ($(".op2").text() === ($(".op2").attr("data-answer"))) {
-    rights++;
-    nextQuestion(qBank);
-  }
-  else if ($(".op2").text() !== ($(".op2").attr("data-answer"))) {
-    wrongs++;
-    nextQuestion(qBank);
-  };
-  timeRemaining = 10;
-})
+  $(".op2").on("click", function () {
+    if ($(".op2").text() === ($(".op2").attr("data-answer"))) {
+      rights++;
+      nextQuestion(qBank);
+    } else if ($(".op2").text() !== ($(".op2").attr("data-answer"))) {
+      wrongs++;
+      nextQuestion(qBank);
+    };
+    timeRemaining = 10;
+  })
 
-$(".op3").on("click", function () {
-  if ($(".op3").text() === ($(".op3").attr("data-answer"))) {
-    rights++;
-    nextQuestion(qBank);
-  }
-  else if ($(".op3").text() !== ($(".op3").attr("data-answer"))) {
-    wrongs++;
-    nextQuestion(qBank);
-  };
-  timeRemaining = 10;
-})
+  $(".op3").on("click", function () {
+    if ($(".op3").text() === ($(".op3").attr("data-answer"))) {
+      rights++;
+      nextQuestion(qBank);
+    } else if ($(".op3").text() !== ($(".op3").attr("data-answer"))) {
+      wrongs++;
+      nextQuestion(qBank);
+    };
+    timeRemaining = 10;
+  })
 
-$(".op4").on("click", function () {
-  if ($(".op4").text() === ($(".op4").attr("data-answer"))) {
-    rights++;
-    nextQuestion(qBank);
-  }
-  else if ($(".op4").text() !== ($(".op4").attr("data-answer"))) {
-    wrongs++;
-    nextQuestion(qBank);
-  };
-  timeRemaining = 10;
-})
+  $(".op4").on("click", function () {
+    if ($(".op4").text() === ($(".op4").attr("data-answer"))) {
+      rights++;
+      nextQuestion(qBank);
+    } else if ($(".op4").text() !== ($(".op4").attr("data-answer"))) {
+      wrongs++;
+      nextQuestion(qBank);
+    };
+    timeRemaining = 10;
+  })
+}
+
 
 // for (var i = 1; i < 5; i++) {
 //   $(".op" + i).on("click", function () {

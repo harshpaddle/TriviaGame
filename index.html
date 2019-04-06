@@ -7,41 +7,41 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap.min.css">
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css">
 <link rel="stylesheet" href="assets/css/style.css">
-<title>Bollywood Trivia</title>
+<title>Basketball Trivia</title>
 </head>
 <body>
 
-  <h1 class="heading jumbotron container text-center display-4 justify-content-around m">Basketball Trivia</h1>
+  <h1 class="heading jumbotron container text-center display-4 justify-content-around m p-4">Basketball Trivia</h1>
 
   <section class="container">
 
     <div class="question text-center border p-3">
-      <h3 id="q">Click on the new game to get started</h3>
+      <h2 id="q">Click on the new game to get started</h2>
     </div>
 
     <div class="row container">
-      <sec class="col-4 justify-content-around p-4 mt-4">
-        <div class="card" style="width: 18rem;">
+      <sec class="col-4 justify-content-around pt-0 mt-4">
+        <div class="card stats" style="width: 18rem;">
           <div class="card-body">
             <!-- <h5 class="card-title">Card title</h5> -->
           </div>
-          <ul class="list-group list-group-flush">
-            <li class="list-group-item time-remaining">Time Remaining: <span class="time"></span></li>
-            <li class="list-group-item">Correct Answers: <span class="corrects"></span></li>
-            <li class="list-group-item">Wrong Answers: <span class="wrongs"></span></li>
-          </ul>
-          <div class="card-body">
-            <a href="#" class="card-link new-game border btn btn-primary" id="new-game">New Game</a>
+          <div class="card-body pt-0">
+            <a href="#" class="card-link new-game border btn btn-primary p-3 btn-warning" id="new-game">New Game</a>
           </div>
+          <ul class="list-group list-group-flush shadwow-lg">
+            <li class="list-group-item list-group-item-danger time-remaining">Time Remaining: <span class="time"></span></li>
+            <li class="list-group-item list-group-item-danger">Correct Answers: <span class="corrects"></span></li>
+            <li class="list-group-item list-group-item-danger">Wrong Answers: <span class="wrongs"></span></li>
+          </ul>
         </div>
       </sec>
     
-      <div class="mt-4 btn-group-vertical p-4 justify-content-around col-8 border options">
+      <div class="mt-4 btn-group-vertical p-4 justify-content-around col-8 border options shadow-lg">
         <h3 class="p-3">Options:</h3>
-        <button type="button" class="btn btn-secondary m-2 op op1">You have 15 seconds to answer each question </button>
-        <button type="button" class="btn btn-secondary m-2 op op2">Select your answer by clicking on them respectively</button>
-        <button type="button" class="btn btn-secondary m-2 op op3">You'll see the time remaining, correct choices and incorrect choices on the left bar</button>
-        <button type="button" class="btn btn-secondary m-2 op op4">Have fun </button>
+        <button type="button" class="btn btn-lg btn-secondary btn-warning m-2 op op1">You have 10 seconds to answer each question </button>
+        <button type="button" class="btn btn-lg btn-secondary btn-warning m-2 op op2">Select your answer by clicking on them respectively</button>
+        <button type="button" class="btn-lg btn btn-secondary btn-warning m-2 op op3">You'll see the time remaining, correct choices and incorrect choices on the left bar</button>
+        <button type="button" class="btn-lg btn btn-secondary btn-warning m-2 op op4">Have fun </button>
       </div>
     </div>
   </section>
