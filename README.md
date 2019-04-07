@@ -1,13 +1,13 @@
-## ![NBA Trivia](https://harshpaddle.github.io/TriviaGame.github.io)
+## NBA Trivia(https://harshpaddle.github.io/TriviaGame.github.io)
 Hello there, welcome to basketball trivia. What we have here is a simple trivia game surrounding mind-blowing stats and facts about few nba great name players.
 
 ## Motivation
 This project was built to apply what I learned about **Javascript Timing Events**. The window object(browser) allows execution of code at specified time intervals with out refreshing the page.
 
 ## Technologies used 
-> HTML
-> CSS
-> JavaScript
+* HTML
+* JavaScript
+* CSS
 >> Bootstrap
 
 ## Features
