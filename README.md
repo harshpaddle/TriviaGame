@@ -14,7 +14,7 @@ This project was built to apply what I learned about **Javascript Timing Events*
 Cool thing about this program is that its individual parts, data and contents changing without requiring a user response or input, but changes at set time intervals.
 
 ## Screenshots
-Include logo/demo screenshot etc.
+![a screenshot](https://github.com/harshpaddle/TriviaGame/blob/master/assets/images/Screen%20Shot%202019-04-07%20at%2010.51.47%20AM.png)
 
 ## How to use?
 1. Click on the new button to get started.
