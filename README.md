@@ -1,4 +1,4 @@
-![the logo](https://theundefeated.com/wp-content/uploads/2017/05/nba-logo.png) ## [NBA Trivia](https://harshpaddle.github.io/TriviaGame.github.io)
+## [NBA Trivia](https://harshpaddle.github.io/TriviaGame.github.io)
 Hello there, welcome to basketball trivia. What we have here is a simple trivia game surrounding mind-blowing stats and facts about few nba great name players.
 
 ## Motivation
@@ -28,3 +28,4 @@ Cool thing about this program is that its individual parts, data and contents ch
 
 ## License
 MIT © [Harsh Patel]()
+![the logo](https://github.com/harshpaddle/TriviaGame/blob/master/assets/images/68747470733a2f2f746865756e64656665617465642e636f6d2f77702d636f6e74656e742f75706c6f6164732f323031372f30352f6e62612d6c6f676f2e706e67.png)
