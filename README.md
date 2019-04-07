@@ -1,4 +1,4 @@
-## NBA Trivia(https://harshpaddle.github.io/TriviaGame.github.io)
+## [NBA Trivia](https://harshpaddle.github.io/TriviaGame.github.io)
 Hello there, welcome to basketball trivia. What we have here is a simple trivia game surrounding mind-blowing stats and facts about few nba great name players.
 
 ## Motivation
@@ -23,11 +23,8 @@ Include logo/demo screenshot etc.
 4
 
 ## Credits
-BootStrap **-----you the real MVP--------**
+### BootStrap **-----you the real MVP--------**
 
-#### Anything else that seems useful
 
 ## License
-A short snippet describing the license (MIT, Apache etc)
-
 MIT © [Harsh Patel]()
