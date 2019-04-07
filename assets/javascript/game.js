@@ -52,14 +52,21 @@ var q9 = {
   answer: "Wilt Chamberlain"
 }
 
-var qBank = [q1, q2, q3, q4, q5, q6, q7, q8, q9];
+var q10 = {
+  question: "Who is my favorite nba player currently active in the league?",
+  options: ["Spencer Diwidie", "Stephen Curry", "Giannis Antetokompo", "Damian Lillard"],
+  answer: "Damian Lillard"
+
+};
+
+var qBank = [q1, q2, q3, q4, q5, q6, q7, q8, q9, q10];
 var timeRemaining = 10;
 var rights = 0;
 var wrongs = 0;
 var gameOver2 = false;
 
 function newGame() {
-  qBank = shuffle([q1, q2, q3, q4, q5, q6, q7, q8, q9]);
+  qBank = shuffle([q1, q2, q3, q4, q5, q6, q7, q8, q9, q10]);
   timeRemaining = 10;
   rights = 0;
   wrongs = 0;
@@ -95,7 +102,7 @@ function timeLeft() {
 function nextQuestion(array) {
   if (array.length === 0) {
     gameOver();
-    return false;
+    // return false;
   }
   var q = array.pop();
   $("#q").text(q.question);
@@ -110,15 +117,16 @@ function nextQuestion(array) {
 
 function gameOver() {
   if (qBank.length === 0) {
+    gameOver2 = true;
+    $(".heading").text("Keep shooting")
     if (rights > wrongs) {
       $("#q").text("Well done, you've got a good fg%")
     }
     if (wrongs > rights) {
-      $("#q").text("Damn son, you shot bricks.. Click on the new game to try again")
+      $("#q").text("Damn son, you shot bricks.. Click on the new game to keep shooting")
     }
     alert("---Game Over--- Fg%: " + ((rights/9)*100));
     $(".time").html("00:00");
-    gameOver2 = true;
     $(".new-game").show();
     // clearTimeout(timeRemaining);
   }
@@ -132,13 +140,15 @@ function shuffle(array) {
 
 $(".new-game").on("click", newGame);
 
-if (!gameOver2) {
+if (gameOver2 === false) {
   $(".op1").on("click", function () {
     if ($(".op1").text() === ($(".op1").attr("data-answer"))) {
       rights++;
+      $(".heading").text("Correct")
       nextQuestion(qBank);
     } else if ($(".op1").text() !== ($(".op1").attr("data-answer"))) {
       wrongs++;
+      $(".heading").text("False")
       nextQuestion(qBank);
     };
     timeRemaining = 10;
@@ -147,9 +157,11 @@ if (!gameOver2) {
   $(".op2").on("click", function () {
     if ($(".op2").text() === ($(".op2").attr("data-answer"))) {
       rights++;
+      $(".heading").text("Correct")
       nextQuestion(qBank);
     } else if ($(".op2").text() !== ($(".op2").attr("data-answer"))) {
       wrongs++;
+      $(".heading").text("False")
       nextQuestion(qBank);
     };
     timeRemaining = 10;
@@ -158,9 +170,11 @@ if (!gameOver2) {
   $(".op3").on("click", function () {
     if ($(".op3").text() === ($(".op3").attr("data-answer"))) {
       rights++;
+      $(".heading").text("Correct")
       nextQuestion(qBank);
     } else if ($(".op3").text() !== ($(".op3").attr("data-answer"))) {
       wrongs++;
+      $(".heading").text("False")
       nextQuestion(qBank);
     };
     timeRemaining = 10;
@@ -169,9 +183,11 @@ if (!gameOver2) {
   $(".op4").on("click", function () {
     if ($(".op4").text() === ($(".op4").attr("data-answer"))) {
       rights++;
+      $(".heading").text("Correct")
       nextQuestion(qBank);
     } else if ($(".op4").text() !== ($(".op4").attr("data-answer"))) {
       wrongs++;
+      $(".heading").text("False")
       nextQuestion(qBank);
     };
     timeRemaining = 10;
@@ -199,10 +215,10 @@ if (!gameOver2) {
 
 
 // function answerChecker(buton) {
-//   if (buton.text() === (buton).attr("data-answer")) {
+//   if $(buton.text() === $(buton).attr("data-answer")) {
 //     rights++;
 
-//   } else if (buton.text() !== (button).attr("datat-answer")) {
+//   } else if $(buton.text() !== $(button).attr("datat-answer")) {
 //     wrongs++;
 //   }
 //   nextQuestion(qBank);
