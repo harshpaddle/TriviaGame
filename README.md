@@ -1,4 +1,4 @@
-## [NBA Trivia](https://harshpaddle.github.io/TriviaGame.github.io)
+## [NBA Trivia](https://harshpaddle.github.io)
 Hello there, welcome to basketball trivia. What we have here is a simple trivia game surrounding mind-blowing stats and facts about few nba great name players.
 
 ## Motivation
